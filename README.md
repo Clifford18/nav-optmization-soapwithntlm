@@ -1,6 +1,7 @@
 # SOAP(NAV)with NTLM
 
-Sample Java application to use NTLM authentication with SOAP to test Nav Latency
+Sample Java application to use NTLM authentication with SOAP to test Nav Database Latency On Indexed and non-indexed
+fields.
 
 ## NTLM
 
@@ -60,6 +61,7 @@ NTLM. Negotiate selects Kerberos unless it cannot be used by one of the systems 
 ## A Sample Java Client
 
 ```java
+
 public class Client {
     public static void main(String[] args) {
         for (int i = 0; i < 5; i++) {
@@ -77,7 +79,7 @@ public class Client {
 
         CredentialsProvider credsProvider = new BasicCredentialsProvider();
         credsProvider.setCredentials(AuthScope.ANY,
-                new NTCredentials("UserName", "Password", "Domain"));
+                new NTCredentials("UserName", "Password", "Host", "Domain"));
 
         HttpClient client = HttpClientBuilder.create().setDefaultCredentialsProvider(credsProvider).build();
 
@@ -119,6 +121,5 @@ public class Client {
         return null;
     }
 }
-
 
 ```
